@@ -13,12 +13,14 @@ See \url{http://www.brewerydb.com/developers} to obtain an API key.}
 
 \item{name}{a character string containing the name of a brewery.}
 
+\item{ids}{a character string or vector of character strings containing
+brewery ids.}
+
 \item{established}{a character string containing the year indicating the year
 a brewery or breweries where established.  Must follow the format 'YYYY'.}
 
 \item{status}{a character string indicating the status of an entity in BreweryDb.  Defaults to \emph{verified}.  Other possible status are
-\emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and
-\emph{deleted}}
+\emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and \emph{deleted}}
 
 \item{data_frame}{a logical argument indicating if the function should return
 a data frame.  Defaults to \code{TRUE}.}

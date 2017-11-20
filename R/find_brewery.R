@@ -3,12 +3,12 @@
 #' @param api_key a charater string containing a BreweryDB API key.
 #' See \url{http://www.brewerydb.com/developers} to obtain an API key.
 #' @param name a character string containing the name of a brewery.
-#' @param ids
+#' @param ids a character string or vector of character strings containing
+#' brewery ids.
 #' @param established a character string containing the year indicating the year
 #'  a brewery or breweries where established.  Must follow the format 'YYYY'.
 #' @param status a character string indicating the status of an entity in BreweryDb.  Defaults to \emph{verified}.  Other possible status are
-#' \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and
-#' \emph{deleted}
+#' \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and \emph{deleted}
 #' @param data_frame a logical argument indicating if the function should return
 #' a data frame.  Defaults to \code{TRUE}.
 #'
@@ -31,9 +31,18 @@ find_brewery <- function(api_key,
     base_url <- 'http://api.brewerydb.com/v2/breweries'
 
     # Set Up Query params
+
+    ## Create a comma sepearted string of ids.
+    if (!is.null(ids)) {
+        id_string <- paste(ids, collapse = ',')
+    } else {
+        id_string <- NULL
+    }
+
+    ## Create a list of all params.
     query_params <- list(key = api_key,
                          name = name,
-                         ids = ids,
+                         ids = id_string,
                          established = established,
                          status = status,
                          format = 'json')
