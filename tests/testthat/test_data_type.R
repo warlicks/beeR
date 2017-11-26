@@ -28,4 +28,10 @@ test_that('find_locations returns correct data types', {
     )
 })
 
+test_that('find_categories returns the correct data types',{
+    # Check that a data frame is retunred when `data_frame = TRUE`
+    expect_is(find_categories(api_key = key), 'data.frame')
 
+    # Check that a httr response is returned when `data_frame = FALSE`
+    expect_is(find_categories(api_key = key, data_frame = FALSE), 'response')
+})
