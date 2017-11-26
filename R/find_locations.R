@@ -1,13 +1,22 @@
-#' Title
+#' Find Breweries By Location
 #'
-#' @param api_key
-#' @param locality
-#' @param region
-#' @param postal_code
-#' @param status
-#' @param data_frame
+#' @param api_key a charater string containing a BreweryDB API key.
+#' See \url{http://www.brewerydb.com/developers} to obtain an API key.
+#' @param locality a character string indicating the location of the breweries.
+#' In the US this corespods to a city.
+#' @param region a character string indicating the location of the breweries.
+#' In the US this corespods to a state
+#' @param postal_code a character string providing the postal code of a location.
+#' @param status a character string indicating the status of an entity in
+#' BreweryDb.  Defaults to \emph{verified}.  Other possible status are
+#' \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending}
+#' and \emph{deleted}
+#' @param data_frame a logical argument indicating if the function should return
+#' a data frame.  Defaults to \code{TRUE}.
 #'
-#' @return
+#' @return By default the function returns a data frame.  If
+#' \code{data_frame = FALSE} the function returns the response object created
+#' by \code{\link[httr]{GET}}
 #' @export
 #'
 #' @examples

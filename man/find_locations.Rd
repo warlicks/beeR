@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_locations.R
 \name{find_locations}
 \alias{find_locations}
-\title{Title}
+\title{Find Breweries By Location}
 \usage{
 find_locations(api_key, locality = NULL, region = NULL,
   postal_code = NULL, status = "verified", data_frame = TRUE)
@@ -33,5 +33,5 @@ By default the function returns a data frame.  If
 by \code{\link[httr]{GET}}
 }
 \description{
-Title
+Find Breweries By Location
 }
