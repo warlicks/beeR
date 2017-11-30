@@ -1,3 +1,19 @@
+#' Process multi page responses from an API call.
+#'
+#' @param number_of_pages an integer.  The total number of pages returned by the
+#' current API call.
+#' @param api_response a response object created by \code{\link[httr]{GET}}.
+#' More specifically it is the respones from the original API call which
+#' returned multiple result pages.
+#'
+#' @return returns a named list with a length equal to the number of pages in the
+#' response.  Each item in the list is a response object created
+#' by \code{\link[httr]{GET}}.
+#'
+#'
+#' @keywords internal
+#'
+#' @examples
 get_multiple_pages <- function(number_of_pages, api_response){
 
     # Store the first page response in a storage list.
@@ -29,6 +45,5 @@ get_multiple_pages <- function(number_of_pages, api_response){
     }
 
     return(all_responses)
-
 }
 
