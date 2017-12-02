@@ -12,7 +12,7 @@ test_that('find_breweries returns correct data types', {
     expect_is(find_brewery(api_key = key,
                            name = 'DC Brau Brewing Company',
                            data_frame = FALSE),
-              'response')
+              'list')
 })
 
 test_that('find_locations returns correct data types', {
@@ -24,7 +24,7 @@ test_that('find_locations returns correct data types', {
     expect_is(find_locations(api_key = key,
                              locality = 'Seattle',
                              data_frame = FALSE),
-              'response'
+              'list'
     )
 })
 
@@ -33,7 +33,7 @@ test_that('find_categories returns the correct data types',{
     expect_is(find_categories(api_key = key), 'data.frame')
 
     # Check that a httr response is returned when `data_frame = FALSE`
-    expect_is(find_categories(api_key = key, data_frame = FALSE), 'response')
+    expect_is(find_categories(api_key = key, data_frame = FALSE), 'list')
 })
 
 test_that('find_styles returns the correct data types',{
@@ -41,5 +41,5 @@ test_that('find_styles returns the correct data types',{
     expect_is(find_styles(api_key = key), 'data.frame')
 
     # Check that a httr response is returned when `data_frame = FALSE`
-    expect_is(find_styles(api_key = key, data_frame = FALSE), 'response')
+    expect_is(find_styles(api_key = key, data_frame = FALSE), 'list')
 })
