@@ -20,7 +20,7 @@ get_multiple_pages <- function(number_of_pages, api_response){
     all_responses <- list(page1 = api_response)
 
     # Define vector for all the remanining pages
-    page_sequence <- seq(2:number_of_pages)
+    page_sequence <- seq(from = 2, to = number_of_pages)
 
     # Define variable with the URL from the original call
     original_url <- api_response$url
