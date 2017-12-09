@@ -23,12 +23,11 @@ a brewery or breweries where established.  Must follow the format 'YYYY'.}
 \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and \emph{deleted}}
 
 \item{data_frame}{a logical argument indicating if the function should return
-a data frame.  Defaults to \code{TRUE}.}
-}
-\value{
-By default the function returns a data frame.  If
-\code{data_frame = FALSE} the function returns the response object created
-by \code{\link[httr]{GET}}
+a data frame.  Defaults to \code{TRUE}.
+
+ @return By default the function returns a data frame.  If
+\code{data_frame = FALSE} the function returns a list of responses - 1 for each page of results - created by
+\code{\link[httr]{GET}}}
 }
 \description{
 Find a brewery in BreweryDB

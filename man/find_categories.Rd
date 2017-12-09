@@ -20,8 +20,8 @@ a data frame.  Defaults to \code{TRUE}}
 }
 \value{
 By default the function returns a data frame.  If
-\code{data_frame = FALSE} the function returns the response object created
-by \code{\link[httr]{GET}}
+\code{data_frame = FALSE} the function returns a list of responses - 1 for each page of results - created by
+\code{\link[httr]{GET}}
 }
 \description{
 Find Beer Categories.

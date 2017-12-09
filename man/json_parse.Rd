@@ -4,10 +4,10 @@
 \alias{json_parse}
 \title{Parse JSON response and return a data frame.}
 \usage{
-json_parse(api_content)
+json_parse(response_list)
 }
 \arguments{
-\item{api_content}{an object of class "response" from \code{\link[httr]{GET}}}
+\item{api_content}{a list.  Each object in the list should of class "response" from \code{\link[httr]{GET}}}
 }
 \value{
 returns a data frame

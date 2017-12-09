@@ -14,8 +14,8 @@
 #' a data frame.  Defaults to \code{TRUE}.
 #'
 #' @return By default the function returns a data frame.  If
-#' \code{data_frame = FALSE} the function returns the response object created
-#' by \code{\link[httr]{GET}}
+#' \code{data_frame = FALSE} the function returns a list of responses - 1 for each page of results - created by
+#' \code{\link[httr]{GET}}
 #'
 #' @export
 #'
@@ -45,12 +45,16 @@ find_styles <- function(api_key,
     api_call <- httr::GET(query_url)
     httr::stop_for_status(api_call)
 
+    # Put response in a list to keep consistent with other functions. The style endpoint does not return multiple pages.
+    api_response <- list(page1 = api_call)
+
     # If the data frame argument is true we use the json_parse function to
     # return a data frame.  Other wise we return the raw API response.
     if (data_frame) {
-        df <- json_parse(api_call)
+        df <- json_parse(api_response)
         return(df)
     } else {
-        return(api_call)
+        return(api_response)
     }
+
 }

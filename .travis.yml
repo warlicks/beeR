@@ -5,3 +5,8 @@ env:
   global:
     secure: ShTOKMvVdITCAwyAEusAu0WZ2mloFAFzIqUGvr4OAgQr+hGxI3pzeVMyfhQpJIs8Me1lWf6wxAzfPTlEQe+eFP1xEXnMkmKC3IjwOeM/yuVyiysTQFu+6ae0I0fvYKAXLZTKiCTp6nSUGsZpER0HHx0K+x4r/PNoW/6dfjDC49Vov1HlUC7nlvpL5Ha8pAb2TgIqqRSCs54PV14z1ISLsvgozWp2T6IxN06hpK+gUSiuRE8M1Knz/ocTk/VmEq5nu9EbnIXat4UTgRJSf4r1Kt05iV1ly5o/eVWZqJA0S8In9O6i6XGu4Vg2fDDxyuffMMAHb/QVTygj9Rn4BBGXlE+74cyVucDSqodM8MaoeoTtQ3HoICspH2L3YmZyeHy4/7fgT1kieYY9xMrFJ2eh1MzvMhL8p3ydDtbnQ7nFs8PIkn962bMlN4DuklijpKR8Fdgq93cfO0r63m5f7Sj7MzKZJhUTtMhphggGmqNK9BOVQAHJnVSJMhgmIKecW/zxvAtn388ExfIuQYo0O3WEbP+pevXWrAzwKJJrtl+/g1h4RXdZX7Vwom8qyoF+oRtKl/MaCcgLvyqTmSTDPn4t6TYZV30eaEmEvyyyOPYPvmAkOK0+0NHgZZvgd9+l9kcetDlymAxbRzaQi1KuAA57B60APWXwj7yU8Df20DOVZNg=
 
+r_github_packages:
+  - r-lib/covr
+
+after_success:
+  - Rscript -e 'covr::codecov()'
