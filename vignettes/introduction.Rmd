@@ -12,8 +12,8 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
-)
+  comment = "#>")
+library(beeR)
 ```
 
 ## Introduction  
@@ -34,15 +34,19 @@ key <- "replace this with your key"
 ```
 
 Now you can use the several `find_` functions in the beeR package to request BreweryDB data. For example you can get all of the BJCP style guidelines data. 
-```{r}
+```{r, eval=FALSE}
 styles <- find_styles(api_key = key, style_name = "")
+```
+
+
+```{r}
 head(styles)
 names(styles)
 ```
 
 You can then plot out this data.
-```{r}
-ggplot(data = EPA, mapping = aes(x = ogMin, 
+```{r, fig.width=7, fig.height=4.5}
+ggplot(data = styles, mapping = aes(x = ogMin, 
                                  y = as.integer(ibuMin), 
                                  color = category.name)) + geom_point() + 
   scale_color_brewer(type = "qual", palette = 3) + labs(x = "Minimum OG", y = "Minimum IBU", color = "Style Category") + theme_classic() + theme(axis.text.x = element_text(angle = 90))
