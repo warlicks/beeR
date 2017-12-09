@@ -1,0 +1,53 @@
+---
+title: "Introduction to beeR: A BreweryDB API tool"
+author: "Clay Wright"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction  
+
+Brewers and beer enthusiasts are always on the hunt for something new in the world of beer that they haven't had before, whether this is a new example of their favorite style, a style they've never tried, or a style possibly no one has ever tried. [BreweryDB](http://www.brewerydb.com/about) is a crowd-sourced and community-curated database of beer knowledge. The goal of BreweryDB is:  
+
+> To make the best, most comprehensive collection of data surrounding the beer and brewing community, then make that data available for free to developers all over the world.  
+
+The goal of this package is to facilitate access to this data via R and to provide tools for exploration and visualization of this data making use of the rich set of R tools for this.
+
+## Getting style data
+
+Before getting any data you will need an API key. Sign up for an account and request a key at [brewerydb.com/developers](http://www.brewerydb.com/developers). 
+
+Once you have a key, create an object containing this string.
+```{r, eval = F}
+key <- "replace this with your key"
+```
+
+Now you can use the several `find_` functions in the beeR package to request BreweryDB data. For example you can get all of the BJCP style guidelines data. 
+```{r}
+styles <- find_styles(api_key = key, style_name = "")
+head(styles)
+names(styles)
+```
+
+You can then plot out this data.
+```{r}
+ggplot(data = EPA, mapping = aes(x = ogMin, 
+                                 y = as.integer(ibuMin), 
+                                 color = category.name)) + geom_point() + 
+  scale_color_brewer(type = "qual", palette = 3) + labs(x = "Minimum OG", y = "Minimum IBU", color = "Style Category") + theme_classic() + theme(axis.text.x = element_text(angle = 90))
+
+```
+
+
+
