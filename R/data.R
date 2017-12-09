@@ -1,4 +1,7 @@
-
-#' @format data.frame
-#' @source BreweryDB styles page
-'styles'
+#' Styles
+#'
+#' BJCP style guidelines data from BreweryDB styles page
+#'
+#' @format a data.frame
+#' @source \url{http://www.brewerydb.com/styles}
+"styles"
