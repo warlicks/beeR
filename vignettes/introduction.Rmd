@@ -47,9 +47,10 @@ names(styles)
 
 You can then plot out this data.
 ```{r, fig.width=7, fig.height=4.5}
-ggplot(data = styles, mapping = aes(x = ogMin, 
+ggplot(data = subset(styles, !is.na(styles$ibuMin)), mapping = aes(x = as.numeric(ogMin), 
                                  y = as.integer(ibuMin), 
-                                 color = category.name)) + geom_point() + 
+                                 color = category.name)) + 
+  geom_point(mapping = aes(label = id), position = position_jitter()) + 
   scale_color_brewer(type = "qual", palette = 3) + labs(x = "Minimum OG", y = "Minimum IBU", color = "Style Category") + theme_classic() + theme(axis.text.x = element_text(angle = 90))
 
 ```
