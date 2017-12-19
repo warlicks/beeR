@@ -55,5 +55,10 @@ ggplot(data = subset(styles, !is.na(styles$ibuMin)), mapping = aes(x = as.numeri
 
 ```
 
+Before going much further let's clean up this data a bit
+```{r}
+names(styles)
+styles[,6:14] <- apply(styles[,6:14], MARGIN = 2, FUN = "as.numeric")
+```
 
 

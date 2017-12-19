@@ -30,8 +30,8 @@ shinyServer(function(input, output) {
 
   output$Plot <- renderPlot({
     ggplot(data = data(),
-           mapping = aes(x = as.numeric(data()[,input$varX]),
-                         y = as.numeric(input$varY),
+           mapping = aes(x = data()[,input$varX],
+                         y = data()[,input$varY],
                          color = category.name)) +
       geom_point(position = position_jitter()) +
       scale_color_brewer(type = "qual", palette = 3) +
@@ -41,7 +41,7 @@ shinyServer(function(input, output) {
   })
 
   output$info <- renderPrint({
-    brushedPoints(styles, input$plot_brush, "selectX", "selectY")
+    brushedPoints(data(), input$plot_brush, input$varX, input$varY)
   })
 
 })
