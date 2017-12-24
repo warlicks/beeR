@@ -7,7 +7,9 @@
 check_for_data_response(api_response)
 }
 \arguments{
-\item{api_response}{}
+\item{api_response}{a response object created by \code{\link[httr]{GET}}.
+More specifically it is the respones from the original API call which
+returned multiple result pages}
 }
 \value{
 A logical object indicating if data is part of the response object
