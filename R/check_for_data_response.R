@@ -1,4 +1,4 @@
-#' Title
+#' Check if the response from the API call includes data.
 #'
 #' @param api_response
 #'
