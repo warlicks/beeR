@@ -15,5 +15,8 @@ test_that('An Error Is Returned When No Data is Returned',{
   expect_error(find_categories(key, name = 'Seattle Style'),
                error)
 
+  expect_error(find_styles(key, style_name = 'No Name Beer' ),
+               error)
+
   #expect_error(find_beer(key, name = ))
 })
