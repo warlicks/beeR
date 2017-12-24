@@ -18,31 +18,34 @@
 #'
 find_categories <- function(api_key, id = NULL, name = NULL, data_frame = TRUE){
 
-    # Set up base url for catagories endpoint.
-    base_url <- 'http://api.brewerydb.com/v2/categories'
+  # Set up base url for catagories endpoint.
+  base_url <- 'http://api.brewerydb.com/v2/categories'
 
-    # Set up query params and the url for the api call
-    query_params <- list(key = api_key,
-                         id = id,
-                         name = name,
-                         format = 'json')
+  # Set up query params and the url for the api call
+  query_params <- list(key = api_key,
+                       id = id,
+                       name = name,
+                       format = 'json')
 
-    query_url <- httr::modify_url(base_url, query = query_params)
+  query_url <- httr::modify_url(base_url, query = query_params)
 
-    # Call the api and check the response
-    api_call <- httr::GET(query_url)
-    httr::stop_for_status(api_call)
+  # Call the api and check the response
+  api_call <- httr::GET(query_url)
+  httr::stop_for_status(api_call)
 
-    # Put response in a list to keep consistent with other functions.
-    api_response <- list(page1 = api_call)
+  # Check if there there is a data object in the response
+  check_for_data_response(api_call)
 
-    # If the data frame argument is true we use the json_parse function to
-    # return a data frame.  Other wise we return the raw API response.
-    if (data_frame) {
-        df <- json_parse(api_response)
-        return(df)
-    } else {
-        return(api_response)
-    }
+  # Put response in a list to keep consistent with other functions.
+  api_response <- list(page1 = api_call)
+
+  # If the data frame argument is true we use the json_parse function to
+  # return a data frame.  Other wise we return the raw API response.
+  if (data_frame) {
+    df <- json_parse(api_response)
+      return(df)
+  } else {
+      return(api_response)
+  }
 
 }
