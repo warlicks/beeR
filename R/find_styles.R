@@ -45,6 +45,9 @@ find_styles <- function(api_key,
     api_call <- httr::GET(query_url)
     httr::stop_for_status(api_call)
 
+    # Check if there there is a data object in the response
+    check_for_data_response(api_call)
+
     # Put response in a list to keep consistent with other functions. The style endpoint does not return multiple pages.
     api_response <- list(page1 = api_call)
 

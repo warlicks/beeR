@@ -5,15 +5,19 @@
 #' @param name a character string containing the name of a beer.
 #' @param ids a character string or vector of character strings containing
 #' beer ids.
-#' @param style_id
-#' @param organic
-#' @param status a character string indicating the status of an entity in BreweryDb.  Defaults to \emph{verified}.  Other possible status are
-#' \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and \emph{deleted}.
+#' @param style_id a character string providing BreweryDB's ID for a beer style.
+#' @param organic a character string, either \code{'Y'} or \code{'N'} indicating
+#' if the beer is organic.
+#' @param status a character string indicating the status of an entity in
+#' BreweryDB.  Defaults to \emph{verified}.  Other possible status are
+#' \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and
+#' \emph{deleted}.
 #' @param data_frame a logical argument indicating if the function should return
 #' a data frame.  Defaults to \code{TRUE}.
 #'
 #' @return By default the function returns a data frame.  If
-#' \code{data_frame = FALSE} the function returns a list of responses - 1 for each page of results - created by
+#' \code{data_frame = FALSE} the function returns a list of responses - 1 for
+#' each page of results - created by
 #' \code{\link[httr]{GET}}
 #' @export
 #'
@@ -56,6 +60,9 @@ find_beer <- function(api_key,
     # Call the API and check the response
     api_call <- httr::GET(query_url)
     httr::stop_for_status(api_call)
+
+    # Check if there there is a data object in the response
+    check_for_data_response(api_call)
 
     # Check the number of pages in the result
     total_pages <- httr::content(api_call)$numberOfPages
