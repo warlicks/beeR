@@ -1,3 +1,21 @@
+#' Find ingridents used to make a beer.
+#'
+#' @param api_key a charater string containing a BreweryDB API key.
+#' See \url{http://www.brewerydb.com/developers} to obtain an API key.
+#' @param ida character string containing a beer id.
+#' @param data_frame a logical argument indicating if the function should return
+#' a data frame.  Defaults to \code{TRUE}.
+#'
+#' @return By default the function returns a data frame.  If
+#' \code{data_frame = FALSE} the function returns a list of responses - 1
+#' for each page of results - created by \code{\link[httr]{GET}}
+#'
+#' @export
+#'
+#' @examples
+#' # Do Not Run
+#' # find_beer_ingredients(key, id = 'WHQisc')
+
 find_beer_ingredients <- function(api_key,
                              id,
                              data_frame = TRUE) {
