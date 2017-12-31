@@ -29,7 +29,6 @@ find_beer_ingredients <- function(api_key,
     # Set Up The URL
     query_url <- paste(base_url, id, 'ingredients', sep = '/')
     query_url <- httr::modify_url(query_url, query = query_params)
-    print(query_url)
 
     # Call the API and check the response
     api_call <- httr::GET(query_url)
@@ -40,6 +39,10 @@ find_beer_ingredients <- function(api_key,
 
     # Check the number of pages in the result
     total_pages <- httr::content(api_call)$numberOfPages
+
+    if(is.null(total_pages)){
+        total_pages <- 0
+    }
 
     if(total_pages > 1){
         api_response <- get_multiple_pages(total_pages, api_call)
