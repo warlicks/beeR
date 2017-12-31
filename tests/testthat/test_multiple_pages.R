@@ -19,7 +19,9 @@ total_results <- httr::content(response)$totalResults
 # Set Up API call to test find_brewerery returns the correct results ----
 url2 <- httr::modify_url('http://api.brewerydb.com/v2/breweries',
                         query = list(key = key,
-                                     established = '2011')
+                                     established = '2011',
+                                     status = 'verified',
+                                     format = 'json')
                         )
 
 response2 <- httr::GET(url2)
