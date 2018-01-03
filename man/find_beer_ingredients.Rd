@@ -10,10 +10,10 @@ find_beer_ingredients(api_key, id, data_frame = TRUE)
 \item{api_key}{a charater string containing a BreweryDB API key.
 See \url{http://www.brewerydb.com/developers} to obtain an API key.}
 
+\item{id}{a character string containing a beer id.}
+
 \item{data_frame}{a logical argument indicating if the function should return
 a data frame.  Defaults to \code{TRUE}.}
-
-\item{ida}{character string containing a beer id.}
 }
 \value{
 By default the function returns a data frame.  If

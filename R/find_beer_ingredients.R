@@ -2,7 +2,7 @@
 #'
 #' @param api_key a charater string containing a BreweryDB API key.
 #' See \url{http://www.brewerydb.com/developers} to obtain an API key.
-#' @param ida character string containing a beer id.
+#' @param id a character string containing a beer id.
 #' @param data_frame a logical argument indicating if the function should return
 #' a data frame.  Defaults to \code{TRUE}.
 #'
