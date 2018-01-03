@@ -40,6 +40,29 @@ test_that('find_styles returns the correct data types',{
     # Check that a data frame is retunred when `data_frame = TRUE`
     expect_is(find_styles(api_key = key), 'data.frame')
 
-    # Check that a httr response is returned when `data_frame = FALSE`
+    # Check that a list of httr responses is returned when `data_frame = FALSE`
     expect_is(find_styles(api_key = key, data_frame = FALSE), 'list')
+})
+
+test_that('find_beer returns the correct data types', {
+    # Check that a data frame is retunred when `data_frame = TRUE`
+    expect_is(find_beer(api_key = key, name = 'Stoup Northwest Red'),
+              'data.frame')
+    # Check that a list of httr response is returned when `data_frame = FALSE`
+    expect_is(find_beer(api_key = key,
+                        name = 'Stoup Northwest Red',
+                        data_frame = FALSE),
+              'list')
+})
+
+test_that('find_beer_ingredients returns the correct data types',{
+    # Check that a data frame is retunred when `data_frame = TRUE`
+    expect_is(find_beer_ingredients(key, 'WHQisc'), 'data.frame')
+
+    # Check that a list of httr response is returned when `data_frame = FALSE`
+    expect_is(find_beer_ingredients(key,
+                                    'WHQisc',
+                                    data_frame = FALSE),
+              'list')
+
 })

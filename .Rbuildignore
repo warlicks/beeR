@@ -1,4 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
-^.\R\scratch_pad.R$
+<<<<<<< HEAD
+^scratch_pad.R$
+^README.Rmd$
+

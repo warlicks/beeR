@@ -1,35 +1,40 @@
-#' Find a brewery in BreweryDB
+#' Find a beer in BreweryDB
 #'
 #' @param api_key a charater string containing a BreweryDB API key.
 #' See \url{http://www.brewerydb.com/developers} to obtain an API key.
-#' @param name a character string containing the name of a brewery.
+#' @param name a character string containing the name of a beer.
 #' @param ids a character string or vector of character strings containing
-#' brewery ids.
-#' @param established a character string containing the year indicating the year
-#'  a brewery or breweries where established.  Must follow the format 'YYYY'.
-#' @param status a character string indicating the status of an entity in BreweryDb.  Defaults to \emph{verified}.  Other possible status are
-#' \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and \emph{deleted}
+#' beer ids.
+#' @param style_id a character string providing BreweryDB's ID for a beer style.
+#' @param organic a character string, either \code{'Y'} or \code{'N'} indicating
+#' if the beer is organic.
+#' @param status a character string indicating the status of an entity in
+#' BreweryDB.  Defaults to \emph{verified}.  Other possible status are
+#' \emph{new_new_unverified}, \emph{update_pending}, \emph{delete_pending} and
+#' \emph{deleted}.
 #' @param data_frame a logical argument indicating if the function should return
 #' a data frame.  Defaults to \code{TRUE}.
 #'
-#'  @return By default the function returns a data frame.  If
-#' \code{data_frame = FALSE} the function returns a list of responses - 1 for each page of results - created by
+#' @return By default the function returns a data frame.  If
+#' \code{data_frame = FALSE} the function returns a list of responses - 1 for
+#' each page of results - created by
 #' \code{\link[httr]{GET}}
-#'
 #' @export
 #'
 #' @examples
+#'
 
 # Define the function
-find_brewery <- function(api_key,
-                         name = NULL,
-                         ids = NULL,
-                         established = NULL,
-                         status = 'verified',
-                         data_frame = TRUE) {
+find_beer <- function(api_key,
+                      name = NULL,
+                      ids = NULL,
+                      style_id = NULL,
+                      organic = NULL,
+                      status = 'verified',
+                      data_frame = TRUE) {
 
     # Set up base URL for the brewery get request
-    base_url <- 'http://api.brewerydb.com/v2/breweries'
+    base_url <- 'http://api.brewerydb.com/v2/beers'
 
     # Set Up Query params
 
@@ -44,7 +49,8 @@ find_brewery <- function(api_key,
     query_params <- list(key = api_key,
                          name = name,
                          ids = id_string,
-                         established = established,
+                         styleId = style_id,
+                         isOrganic = organic,
                          status = status,
                          format = 'json')
 

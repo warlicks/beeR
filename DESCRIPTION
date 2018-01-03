@@ -15,5 +15,7 @@ Imports: httr,
     jsonlite,
     dplyr,
     ggplot2,
-    knitr
+    knitr,
+    assertthat
 VignetteBuilder: knitr
+
