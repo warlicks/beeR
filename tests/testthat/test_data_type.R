@@ -66,3 +66,8 @@ test_that('find_beer_ingredients returns the correct data types',{
               'list')
 
 })
+
+test_that('find_hops returns the correct data types', {
+    expect_is(find_hops(key), 'data.frame')
+    expect_is(find_hops(key, data_frame = FALSE), 'list')
+})
