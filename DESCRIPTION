@@ -9,7 +9,8 @@ Description: More about what it does (maybe more than one line)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Suggests: testthat
+Suggests: testthat,
+    rmarkdown
 RoxygenNote: 6.0.1
 Imports: httr,
     jsonlite,
@@ -18,4 +19,3 @@ Imports: httr,
     knitr,
     assertthat
 VignetteBuilder: knitr
-
