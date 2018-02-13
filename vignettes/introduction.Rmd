@@ -31,7 +31,7 @@ Before getting any data you will need an API key. Sign up for an account and req
 
 Once you have a key, create an object containing this string.
 ```{r, eval = F}
-key <- "replace this with your key"
+key <- Sys.getenv("BREWERY_DB")
 ```
 
 Now you can use the several `find_` functions in the beeR package to request BreweryDB data. For example you can get all of the BJCP style guidelines data. 
@@ -40,13 +40,13 @@ styles <- find_styles(api_key = key, style_name = "")
 ```
 
 
-```{r}
+```{r, eval = FALSE}
 head(styles)
 names(styles)
 ```
 
 You can then plot out this data.
-```{r, fig.width=7, fig.height=4.5}
+```{r, fig.width=7, fig.height=4.5, eval=FALSE}
 ggplot(data = subset(styles, !is.na(styles$ibuMin)), mapping = aes(x = as.numeric(ogMin), 
                                  y = as.integer(ibuMin), 
                                  color = category.name)) + 
@@ -56,7 +56,7 @@ ggplot(data = subset(styles, !is.na(styles$ibuMin)), mapping = aes(x = as.numeri
 ```
 
 Before going much further let's clean up this data a bit
-```{r}
+```{r eval=FALSE}
 names(styles)
 styles[,6:14] <- apply(styles[,6:14], MARGIN = 2, FUN = "as.numeric")
 ```
