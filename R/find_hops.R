@@ -11,10 +11,8 @@
 #' @export
 #'
 #' @examples
-#' # Do Not Run
-#' #hop_df <- find_hops(api_key)
-#' #hop_list <- find_hops(api_key, data_frame = FALSE)
 #'
+
 find_hops <- function(api_key, data_frame = TRUE){
 
     # Set up base url for catagories endpoint.

@@ -22,8 +22,5 @@ for each page of results - created by \code{\link[httr]{GET}}
 Find all hop styles in Brewery DB
 }
 \examples{
-# Do Not Run
-hop_df <- find_hops(api_key)
-hop_list <- find_hops(api_key, data_frame = FALSE)
 
 }
